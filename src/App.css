@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+h1 {
+  text-align: center;
+}
+.home-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  max-width: 300px;
+  border: 1px solid gray;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+}
+.card h3 {
+  text-align: center;
+}
+.card h6 {
+  text-align: center;
+}
+.card button {
+  width: 100%;
+}
+
+.details_page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-inline: 50px;
+  gap: 20px;
+}
+
+.imgae_container {
+  width: 40%;
+}
+
+.info-container {
+  width: 50%;
+}
+
+.imgae_container img {
+  width: 100%;
+  height: 60vh;
+  background-position: contain;
+}
+
+.info-name {
+  border-bottom: 1px solid black;
+}
+
+.info-container p {
+  margin-block: 5px;
+}
+
+.form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60rem;
+  background-color: #f3f3f3;
+  padding: 5rem 6rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .details_page {
+    flex-direction: column;
+  }
+  .imgae_container {
+    width: 100%;
+  }
+
+  .info-container {
+    width: 100%;
+  }
+}
