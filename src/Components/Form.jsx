@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItems } from "../Redux/bookingsSlice";
 
-const Form = ({
-  name,
-  language,
-  show,
-  handleCross,
-  setBookings,
-  addBooking,
-}) => {
+const Form = ({ name, language, show, handleCross }) => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
+  const dispatch = useDispatch();
 
   if (!show) return null;
 
@@ -19,7 +15,12 @@ const Form = ({
       alert("please fill the form");
       return;
     }
-    addBooking({ userName, userEmail, name, language });
+    // addBooking({ userName, userEmail, name, language });
+
+    dispatch(addItems({ userName, userEmail, name, language }));
+    setUserName("");
+    setUserEmail("");
+    handleCross();
   };
 
   return (

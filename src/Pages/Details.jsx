@@ -17,11 +17,9 @@ const Details = () => {
   };
 
   function HtmlToPlainText(htmlContent) {
-    // Create a temporary div element
     const tempDiv = document.createElement("div");
-    // Set the HTML content to the innerHTML property of the temporary div
     tempDiv.innerHTML = htmlContent;
-    // Extract the text content from the div and return it
+
     return tempDiv.textContent || tempDiv.innerText || "";
   }
 
@@ -38,27 +36,6 @@ const Details = () => {
   useEffect(() => {
     fetchDetails();
   }, []);
-
-  useEffect(() => {
-    const storedBookings = localStorage.getItem("bookings");
-
-    if (storedBookings) {
-      try {
-        setBookings(JSON.parse(storedBookings));
-      } catch (error) {
-        console.error("Error parsing bookings from local storage:", error);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("bookings", JSON.stringify(bookings));
-  }, [bookings]);
-
-  const addBooking = (newBooking) => {
-    setBookings([...bookings, newBooking]);
-  };
-  console.log(bookings);
 
   return (
     <>
@@ -87,8 +64,6 @@ const Details = () => {
           show={show}
           handleCross={handleCross}
           setBookings={setBookings}
-          // bookings={bookings}
-          addBooking={addBooking}
         />
       }
     </>
